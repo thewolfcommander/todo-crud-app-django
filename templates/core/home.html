@@ -4,4 +4,38 @@
 Home {% endblock title %}
 
 {% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col s4"></div>
+        <div class="col s4"></div>
+        <div class="col s4">
+            {% if form %}
+            <h3>Create New Task</h3>
+            <form class="col s12" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s12">
+                        {{ form.title }}
+                        <label for="password">Give it a Title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field col s12">
+                          {{ form.description }}
+                          <label for="textarea1">Describe your task</label>
+                        </div>
+                      </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Create
+                    <i class="material-icons right">send</i>
+                </button>
+    
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
 {% endblock content %}

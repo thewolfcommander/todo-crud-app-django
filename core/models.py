@@ -8,7 +8,9 @@ class Task(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
-    schedule = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('-updated',)
 
     def __str__(self):
         return self.title
