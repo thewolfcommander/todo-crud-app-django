@@ -5,13 +5,31 @@ Home {% endblock title %}
 
 {% block content %}
 
-<div class="container">
+<div>
     <div class="row">
-        <div class="col s4"></div>
-        <div class="col s4"></div>
+        <div class="col s4">
+            <h4>Active Tasks</h4>
+            {% if active %}
+            {% for task in active %}
+            {% include 'includes/card.html' %}
+            {% endfor %}
+            {% else %}
+            <h5>No active tasks</h5>
+            {% endif %}
+        </div>
+        <div class="col s4">
+            <h4>Completed Tasks</h4>
+            {% if inactive %}
+            {% for task in inactive %}
+            {% include 'includes/card.html' %}
+            {% endfor %}
+            {% else %}
+            <h5>No completed tasks</h5>
+            {% endif %}
+        </div>
         <div class="col s4">
             {% if form %}
-            <h3>Create New Task</h3>
+            <h4>Create New Task</h4>
             <form class="col s12" method="POST">
                 {% csrf_token %}
                 <div class="row">

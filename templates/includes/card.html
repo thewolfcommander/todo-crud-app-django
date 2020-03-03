@@ -1,0 +1,15 @@
+
+  <div class="col s12">
+    <div class="card">
+        <div class="card-content">
+          <span class="card-title activator red-text text-darken-4">{{ task.title }}<i class="material-icons right">more_vert</i></span>
+          <a class="waves-effect waves-light btn" href="{% url 'update' task.id %}">{% if task.active %}Mark as Inactive{% else %}Mark as Active{% endif %} </a>
+          <a class="waves-effect waves-light btn red" href="{% url 'delete' task.id %}">Delete</a>
+        </div>
+        <div class="card-reveal m-7">
+          <span class="card-title red-text text-darken-4">{{ task.title }}<i class="material-icons right">close</i></span>
+          <blockquote>{{ task.description }}</blockquote>
+        </div>
+      </div>
+  </div>
+            
