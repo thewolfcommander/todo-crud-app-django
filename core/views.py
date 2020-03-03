@@ -14,8 +14,8 @@ def signup(request):
         if request.method == 'POST':
             form = forms.SignUpForm(request.POST or None)
             if form.is_valid():
-                form.save()
-                auth_login(request)
+                user = form.save()
+                auth_login(request, user)
                 return redirect('home')
         else:
             form = forms.SignUpForm()
